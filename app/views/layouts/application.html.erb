@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MyCms</title>
+  <%= stylesheet_link_tag   "characters","books", "news", "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<%= image_tag("logo.jpg") %>
+<nav><div class="menu_simple">
+<ul>
+<li><a href="/">Новости</a></li>
+<li><a href="/books">Книги</a></li>
+<li><a href="/characters">Персонажи</a></li>
+<li><a href="#">Об авторе</a></li>
+<% if current_user && current_user.role == 'admin' %>
+<li><a href="/users">Админка!</a></li>
+<%end%>
+<% if current_user %>
+<li class="unit"><a class="a_unit" href="/log_out">Выйти</a></li>
+<li class="unit">Вижу Вас как наяву, <%= current_user.login %></li>
+<%else%>
+<li class="unit"><a class="a_unit" href="/users/new">Регистрация</a></li>
+
+
+</ul>
+<br />
+</div>
+</nav>
+<aside><%= render 'sessions/login' %></aside><%end%>
+</ul>
+<br />
+</div>
+</nav>
+<%= yield %>
+
+</body>
+</html>

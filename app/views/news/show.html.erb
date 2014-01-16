@@ -1,0 +1,26 @@
+<div id="main">
+</br>
+<section id="show">
+    <header>
+      <h3>
+      <%= @news.title %></p>
+    </h3>
+
+        <% if admin? or news_moderator? or cm_moderator? %>
+<%= link_to 'Изменить', edit_news_path(@news) %>
+    <%= link_to 'Удалить', news_path(@news),
+                    method: :delete, data: { confirm: 'Are you sure?' } %>
+      <% end %>
+    </header>
+    <article>
+
+      <PRE><%= @news.text %></pre>
+      </br></br>
+   <footer>
+    <%= link_to 'Назад, к списку новостей', "/" %>
+
+   </footer>
+    </article>  </section>
+</br>
+</div>
+

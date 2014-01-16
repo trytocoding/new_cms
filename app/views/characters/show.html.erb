@@ -1,0 +1,26 @@
+<div id="main">
+</br><section id="show">
+    <header>
+      <h3><%= @character.name %></h3>
+     <% if admin? or char_moderator? or cm_moderator? %>
+<%= link_to 'Изменить', edit_character_path(@character) %>
+    <%= link_to 'Удалить', character_path(@character),
+                    method: :delete, data: { confirm: 'Точно удалить?' } %>
+   <% end %>
+    </header>
+    <article>
+
+<p>
+  <strong>Группа:</strong>
+  <%= @character.group %>
+</p>
+
+<PRE><%= @character.text %></pre>
+   <footer>
+
+<%= link_to 'Назад, к списку персонажей', characters_path %>
+   </footer>
+    </article> 
+
+</section></br>
+</div>

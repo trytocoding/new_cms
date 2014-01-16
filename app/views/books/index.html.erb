@@ -1,0 +1,31 @@
+<div id="main">
+  <header class="h">
+  <h1>Книги:</h1>
+
+  <%= link_to 'Добавить книгу', new_book_path %>
+ </header>
+
+ <section>
+  <% @books.each do |book| %>
+  <section>
+    <header>
+      <h3>
+      <p class="book_title"><%= link_to book.title, book %></p>
+    </h3>
+    </header>
+    <article>
+
+      <p class="book_text"><PRE><%= book.text %></p></pre>
+      <p class="podrobno"><%= link_to 'Подробнее', book %></p>
+   <footer>
+   
+  
+   </footer>
+    </article>
+  </section>
+    </br></br>
+  <% end %>
+
+</section>
+</div>
+<footer><%= will_paginate @books, :container => false %></footer>

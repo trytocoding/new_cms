@@ -1,0 +1,32 @@
+<div id="main">
+</br><section id="new_news">
+<header><h1>Изменение пользователя:</h1></header>
+<article>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited
+      this post from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :login %><br />
+    <%= text_field_tag :login, @user.login  %>
+  </p>
+	  <p>
+	    <%= f.label :role %><br />
+	      <%= select_tag(:role, options_for_select([['Пользователь', 'user'], ['Модератор новостей', 'news_moderator'],['Модератор книг', 'books_moderator'],['Модератор персонажей', 'char_moderator'], ['Супермодератор', 'cm_moderator'],["Администратор", 'admin'],])) %>
+	  </p>
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+</article>
+</section></br>
+</div>

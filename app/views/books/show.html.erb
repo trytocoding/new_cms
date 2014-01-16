@@ -1,0 +1,29 @@
+<div id="main">
+</br>
+<section id="show">
+    <header>
+      <h3>
+      <%= @book.title %></h3>
+       <% if admin? or char_moderator? or cm_moderator? %>
+<%= link_to 'Изменить', edit_book_path(@book) %>
+    <%= link_to 'Удалить', book_path(@book),
+                    method: :delete, data: { confirm: 'Точно удалить книгу?' } %>
+ <% end %>
+    
+    </header>
+    
+    <article>
+
+      <PRE><%= @book.text %></pre>
+      	 <%= @book.year %>
+
+      </br></br></br>
+   <footer>
+    <%= link_to 'Назад, к списку книг', "/" %>
+
+   </footer></br>
+    </article> 
+</br>
+</section>
+</br>
+</div>

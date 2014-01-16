@@ -1,0 +1,27 @@
+<div id="main">
+  <header class="h">
+  <h1>Персонажи:</h1>
+
+  <%= link_to 'Добавить персонажа', new_character_path %>
+ </header>
+ 
+<section>
+  <% @characters.each do |character| %>
+<section>
+    <header>
+      <h3><%= link_to character.name, character %></h3>
+    </header>
+    <article>
+
+      <PRE><%= character.text %></pre>
+        <p class="podrobno"><%= link_to 'Подробнее', character %></p>
+       <footer>
+
+ </footer>
+    </article>
+  </section>
+    </br></br>
+  <% end %>
+  </section>
+</div> 
+<footer><%= will_paginate @characters, :container => false %></footer>

@@ -1,0 +1,22 @@
+<div id="main">
+</br>
+<section id="new_news">
+<h1>Все пользователи сайта</h1>
+
+<p><%= link_to "Создать пользователя", new_user_path %></p>
+<table>
+	<th>Никнейм</th><th>Роль</th><th>Действие</th>
+  <% @users.each do |user| %>
+  <tr>
+  	<td><%= user.login %></td>
+  	<td><%= user.role %> </td>
+     <td> 
+     	<%= link_to "Редактировать", edit_user_path(user.id) %>
+     	<%= link_to "Удалить", user, method: :delete, data: { confirm: "Точно?" } %> </td>
+    <tr>
+  <% end %> 
+</table>
+<br><br>
+</section>
+</br>
+</div>

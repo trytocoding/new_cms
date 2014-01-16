@@ -1,0 +1,30 @@
+<div id="main">
+  <header class="h">
+  <h1>Новости:</h1>
+  <%= link_to 'Добавить новость', new_news_path %>
+  <br><br>
+ </header>
+
+ <section>
+  <% @news.each do |news| %>
+  <section>
+    <header>
+      <h3>
+      <p class="news_title"><%= link_to news.title, news %></p>
+    </h3>
+    </header>
+    <article>
+
+      <p class="news_text"><PRE><%= news.text %></p></pre>
+      <p class="podrobno"><%= link_to 'Подробнее', news %></p>
+   <footer>
+   
+  
+   </footer>
+    </article>
+  </section>
+    </br></br>
+  <% end %>
+<footer><%= will_paginate @news, :container => false %></footer>
+</section>
+</div>

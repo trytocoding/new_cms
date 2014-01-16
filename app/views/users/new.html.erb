@@ -1,0 +1,36 @@
+<div id="main">
+</br><section id="new_news">
+<header><h1>Создание нового пользователя:</h1></header>
+<article>
+
+<%= form_for @user do |f| %>
+  <% if @user.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@user.errors.count, "error") %> prohibited
+      this post from being saved:</h2>
+    <ul>
+    <% @user.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+  <% end %>
+  <p>
+    <%= f.label :login %><br>
+    <%= f.text_field :login %>
+  </p>
+    <p>
+    <%= f.label :password %><br>
+    <%= f.text_field :password %>
+  </p>
+
+
+
+ 
+  <p>
+    <%= f.submit %>
+  </p>
+<% end %>
+</article>
+</section></br>
+</div>
